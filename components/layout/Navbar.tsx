@@ -4,11 +4,11 @@ import { AuthButtons } from "./AuthButtons";
 
 export function Navbar() {
   const navLinks = [
-    { name: "New Cars", href: "/cars/new" },
-    { name: "Used Cars", href: "/cars/used" },
-    { name: "Services", href: "/services" },
-    { name: "Showrooms", href: "/showrooms" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "New Cars", href: "/admin/cars/new" },
+    { name: "Used Cars", href: "/admin/cars/used" },
+    { name: "Services", href: "/admin/services" },
+    { name: "Showrooms", href: "/admin/showrooms" },
+    { name: "Contact Us", href: "/admin/contact" },
   ];
 
   return (

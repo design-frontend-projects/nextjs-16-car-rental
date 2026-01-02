@@ -41,8 +41,10 @@ export function AuthButtons() {
     return (
       <div className="flex items-center gap-4">
         {/* Placeholder for User Menu */}
-        <span className="text-sm font-medium">Hello, {user.email}</span>
-        <Button variant="outline" onClick={handleSignOut}>
+        <span className="text-sm font-medium text-emerald-600">
+          Hello, {user.email}
+        </span>
+        <Button variant="default" onClick={handleSignOut}>
           Sign Out
         </Button>
       </div>
@@ -52,7 +54,7 @@ export function AuthButtons() {
   return (
     <div className="flex items-center gap-4">
       <Link href="/auth/signin">
-        <Button variant="ghost">Sign In</Button>
+        <Button variant="outline">Sign In</Button>
       </Link>
       <Link href="/auth/signup">
         <Button>Sign Up</Button>
