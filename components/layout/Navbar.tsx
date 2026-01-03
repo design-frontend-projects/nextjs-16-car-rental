@@ -11,13 +11,13 @@ export async function Navbar({ lng }: { lng: string }) {
   const navLinks = [
     // { name: "New Cars", href: "/admin/cars/new" }, // Keeping original path structure?
     // User structure for 'cars' text is in common.json
-    { name: t("nav.cars"), href: `/${lng}/cars` }, // Assuming standard cars page? Original was /admin/cars/new?
+    { name: t("nav.cars"), href: `/${lng}/admin/cars` }, // Assuming standard cars page? Original was /admin/cars/new?
     // Wait, original list: "New Cars" -> "/admin/cars/new", "Used Cars" -> "/admin/cars/used".
     // I should probably keep the hrefs but prefixed.
     { name: t("nav.home"), href: `/${lng}` },
-    { name: t("nav.blog"), href: `/${lng}/blog` },
-    { name: t("nav.news"), href: `/${lng}/news` },
-    { name: t("nav.contact"), href: `/${lng}/contact` },
+    { name: t("nav.blog"), href: `/${lng}/admin/blog` },
+    { name: t("nav.news"), href: `/${lng}/admin/news` },
+    { name: t("nav.contact"), href: `/${lng}/admin/contact` },
   ];
 
   return (
@@ -50,7 +50,7 @@ export async function Navbar({ lng }: { lng: string }) {
         </nav>
 
         <div className="flex items-center gap-4">
-          <LanguageSwitcher lng={lng} />
+          <LanguageSwitcher />
           <AuthButtons lng={lng} />
         </div>
       </div>

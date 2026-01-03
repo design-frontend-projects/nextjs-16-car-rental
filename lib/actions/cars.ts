@@ -41,8 +41,12 @@ export async function createCar(prevState: unknown, formData: FormData) {
     longitude: formData.get("longitude"),
     status: formData.get("status") || "Available",
   };
+  console.log("***** Form data here *****");
+  console.log(rawData);
 
   const validatedFields = carSchema.safeParse(rawData);
+  console.log("validation schema");
+  console.log(validatedFields);
 
   if (!validatedFields.success) {
     return {
@@ -52,15 +56,7 @@ export async function createCar(prevState: unknown, formData: FormData) {
   }
 
   const { error } = await supabase
-    .from("cars") // WARNING: The user said 'vehicle' table for some parts, but admin uses 'cars'.
-    // Need to check if 'cars' and 'vehicle' are same or different.
-    // Looking at file list earlier, there was no 'vehicle' table in the initial list_tables call output?
-    // Wait, step 60 showed 'vehicle' table columns.
-    // But step 62 view_file 'cars/page.tsx' selects from 'cars'.
-    // This IMPLIES there are two tables or 'cars' is a view or something?
-    // Let's assume 'cars' table exists for Admin based on existing code.
-    // But I added columns to 'vehicle'.
-    // I should check if 'cars' table exists.
+    .from("cars")
     .insert([validatedFields.data])
     .select();
 
@@ -70,7 +66,7 @@ export async function createCar(prevState: unknown, formData: FormData) {
     };
   }
 
-  revalidatePath("/admin/cars");
+  // revalidatePath("/admin/cars");
   redirect("/admin/cars");
 }
 
