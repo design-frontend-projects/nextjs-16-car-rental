@@ -23,5 +23,11 @@
         "booked": "Booked",
         "rental": "Rental",
         "sale": "Sale"
+    },
+    "auth": {
+        "signIn": "Sign In",
+        "signUp": "Sign Up",
+        "signOut": "Sign Out",
+        "hello": "Hello"
     }
 }

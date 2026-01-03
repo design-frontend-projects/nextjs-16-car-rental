@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Globe } from "lucide-react";
 
-export function LanguageSwitcher({ lng }: { lng: string }) {
+export function LanguageSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
 
