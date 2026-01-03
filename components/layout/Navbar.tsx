@@ -7,8 +7,8 @@ export function Navbar() {
   const navLinks = [
     { name: "New Cars", href: "/admin/cars/new" },
     { name: "Used Cars", href: "/admin/cars/used" },
-    { name: "Services", href: "/admin/services" },
-    { name: "Showrooms", href: "/admin/showrooms" },
+    { name: "Blog", href: "/blog" },
+    { name: "News", href: "/news" },
     { name: "Contact Us", href: "/admin/contact" },
   ];
 

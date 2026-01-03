@@ -9,6 +9,7 @@ import {
   LogOut,
   ChevronRight,
   ChevronsUpDown,
+  FileText,
 } from "lucide-react";
 
 import {
@@ -80,6 +81,21 @@ const data = {
       title: "Settings",
       url: "/admin/settings",
       icon: Settings,
+    },
+    {
+      title: "Blog & News",
+      url: "/admin/posts",
+      icon: FileText,
+      items: [
+        {
+          title: "All Posts",
+          url: "/admin/posts",
+        },
+        {
+          title: "New Post",
+          url: "/admin/posts/new",
+        },
+      ],
     },
   ],
 };

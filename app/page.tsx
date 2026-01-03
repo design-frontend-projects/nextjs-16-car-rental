@@ -2,8 +2,15 @@ import { Hero } from "@/components/landing/Hero";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { CarPreviewGrid } from "@/components/landing/CarPreviewGrid";
+import { LatestUpdates } from "@/components/landing/LatestUpdates";
+import { getAllPosts, Post } from "@/lib/actions/posts";
 
-export default function Home() {
+export default async function Home() {
+  const allPosts = await getAllPosts();
+  const latestPosts = allPosts
+    .filter((post: Post) => post.status === "published")
+    .slice(0, 3);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Hero />
@@ -43,6 +50,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LatestUpdates posts={latestPosts} />
+      <div className="flex justify-center mt-8">
+        <Link href="/blog">
+          <Button>Show More</Button>
+        </Link>
+      </div>
     </div>
   );
 }

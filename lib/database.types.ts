@@ -117,7 +117,50 @@ export type Database = {
           [key: string]: Json;
         };
       };
-      // Add other tables as needed for type safety
+      posts: {
+        Row: {
+          id: string;
+          title: string;
+          slug: string;
+          content: Json;
+          excerpt: string | null;
+          type: "blog" | "news";
+          status: "draft" | "published";
+          featured_image: string | null;
+          author_name: string | null;
+          published_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          slug: string;
+          content: Json;
+          excerpt?: string | null;
+          type?: "blog" | "news";
+          status?: "draft" | "published";
+          featured_image?: string | null;
+          author_name?: string | null;
+          published_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          title?: string;
+          slug?: string;
+          content?: Json;
+          excerpt?: string | null;
+          type?: "blog" | "news";
+          status?: "draft" | "published";
+          featured_image?: string | null;
+          author_name?: string | null;
+          published_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
     };
     Views: {
       [_ in never]: never;
@@ -126,6 +169,8 @@ export type Database = {
       [_ in never]: never;
     };
     Enums: {
+      post_type: "blog" | "news";
+      post_status: "draft" | "published";
       vehicle_type: "Rental" | "Sales" | "Both";
       vehicle_status:
         | "Available"
